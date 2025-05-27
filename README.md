@@ -26,6 +26,8 @@ logistics-analytics-platform/
 ├── README.md                # This file
 └── .gitignore
 
+
+
 📊 Power BI Dashboard Features
 KPI Cards: Total Shipments, Avg Delay, On-Time %
 
@@ -38,6 +40,8 @@ Route-level delay matrix
 Map visualization (simulated)
 
 Filters: Vendor, Route Type, Origin, Destination
+
+
 
 
 📌 Pipeline Stages
@@ -61,6 +65,8 @@ Calculated delay time and on-time %
 Output stored in gold/ container
 
 
+
+
 🧠 Skills Demonstrated
 Metadata-driven ADF pipelines (parameterized & looped)
 
@@ -75,6 +81,8 @@ End-to-end orchestration in cloud
 Business-first Power BI dashboard design
 
 
+
+
 📤 How to Reproduce
 Clone this repo
 
@@ -85,6 +93,8 @@ Import ADF pipelines from /adf_pipelines/
 Run notebooks in /notebooks/ inside Databricks
 
 Load Power BI from /powerbi/ and connect to Gold layer
+
+
 
 
 📩 Contact
