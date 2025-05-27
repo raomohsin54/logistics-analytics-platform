@@ -9,6 +9,7 @@ This project demonstrates a modern data engineering workflow using the Medallion
 
 🧱 Architecture
 
+![Architecture Diagram](https://github.com/user-attachments/assets/6610ad97-d196-454e-95de-926f9b7d493e)
 
 
 📁 Folder Structure
@@ -88,7 +89,7 @@ Load Power BI from /powerbi/ and connect to Gold layer
 
 📩 Contact
 📧 rao.mohsin.54@gmail.com
-🌐 LinkedIn
+🌐 LinkedIn: https://www.linkedin.com/in/mohsin-mukhtiar/
 ✍️ Medium
 
 ⭐ Star this repo if you found it useful!
