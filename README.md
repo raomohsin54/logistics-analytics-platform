@@ -1,105 +1,99 @@
- 
-📦 Logistics Analytics Platform – End-to-End Azure Data Engineering Project
-This project demonstrates a modern data engineering workflow using the Medallion Architecture (Bronze → Silver → Gold) to deliver operational logistics insights. It's designed for enterprise-scale logistics or transport companies to monitor shipment performance, delays, and fleet/vendor KPIs using:
+# 📦 Logistics Analytics Platform – End-to-End Azure Data Engineering Project
 
-🚛 Azure Data Factory
-🚀 Azure Databricks + PySpark
-📁 Delta Lake + Parquet
-📊 Power BI for Visualization
+This project demonstrates a modern data engineering workflow using the **Medallion Architecture (Bronze → Silver → Gold)** to deliver operational logistics insights.  
+It's designed for enterprise-scale logistics or transport companies to monitor **shipment performance**, **delays**, and **fleet/vendor KPIs** using:
 
-🧱 Architecture
+- 🚛 **Azure Data Factory**  
+- 🚀 **Azure Databricks + PySpark**  
+- 📁 **Delta Lake + Parquet**  
+- 📊 **Power BI for Visualization**
 
-![Architecture Diagram](https://github.com/user-attachments/assets/6610ad97-d196-454e-95de-926f9b7d493e)
+---
 
+## 🧱 Architecture
 
-📁 Folder Structure
-bash
-Copy
-Edit
+![Architecture Diagram](architecture/logistics_architecture.png)
+
+---
+
+## 📁 Folder Structure
+
 logistics-analytics-platform/
 │
-├── data/                    # Dummy CSVs (drivers, vendors, routes, shipments)
-├── notebooks/               # Databricks Notebooks for each layer
-├── adf_pipelines/           # ADF JSON definitions
-├── powerbi/                 # Power BI screenshots or .pbix
-├── architecture/            # Architecture diagram
-├── README.md                # This file
+├── data/ # Dummy CSVs (drivers, vendors, routes, shipments)
+├── notebooks/ # Databricks Notebooks for each layer
+├── adf_pipelines/ # ADF JSON definitions
+├── powerbi/ # Power BI screenshots or .pbix files
+├── architecture/ # Architecture diagram image
+├── README.md # This file
 └── .gitignore
 
+---
 
+## 📊 Power BI Dashboard Features
 
-📊 Power BI Dashboard Features
-KPI Cards: Total Shipments, Avg Delay, On-Time %
+- ✅ KPI Cards: Total Shipments, Avg Delay, On-Time %
+- 📊 Vendor performance bar charts
+- 📈 Monthly delivery trend lines
+- 🗺️ Route-level delay matrix (simulated map)
+- 🎯 Filters: Vendor, Route Type, Origin, Destination
 
-Vendor performance bar charts
+---
 
-Monthly delivery trend lines
+## 📌 Pipeline Stages
 
-Route-level delay matrix
+### 🔹 Bronze Layer (Raw Ingestion)
+- Raw files: `drivers.csv`, `vendors.csv`, `routes.csv`, `shipments.csv`
+- Ingested using **ADF Copy Activity** with **ForEach loop**
+- Stored in Azure Data Lake under the `bronze/` container
 
-Map visualization (simulated)
+### 🔸 Silver Layer (Cleansed)
+- Field renaming and schema standardization
+- Converted timestamps and metrics (e.g., delay in minutes)
+- Stored as partitioned Parquet files in `silver/` container
 
-Filters: Vendor, Route Type, Origin, Destination
+### 🟡 Gold Layer (Aggregated)
+- Enriched metrics like:
+  - On-Time %
+  - Delay by route
+  - Vendor KPIs
+  - Monthly trends
+- Written to `gold/` container, ready for Power BI
 
+---
 
+## 🧠 Skills Demonstrated
 
+- ✅ Metadata-driven ADF pipelines (parameterized + looped)
+- 🧠 Databricks data transformation using PySpark
+- 🗃️ Medallion architecture (Bronze → Silver → Gold)
+- 💾 Delta Lake & partitioned Parquet files
+- 📅 Incremental + batch pipeline logic
+- 📈 Clean and professional Power BI dashboards
+- 🔐 Secure handling of storage & access configuration
 
-📌 Pipeline Stages
-🔹 Bronze Layer (Raw Ingestion)
-Files: drivers.csv, vendors.csv, routes.csv, shipments.csv
+---
 
-Copied via ADF into the bronze/ container
+## 📤 How to Reproduce
 
-🔸 Silver Layer (Cleansed)
-Standardized field names
+1. Clone this repo
+2. Upload `/data/` CSVs to Azure Data Lake Gen2 (`raw` container)
+3. Import and run ADF pipelines from `/adf_pipelines/`
+4. Execute transformation notebooks in `/notebooks/` inside Databricks
+5. Open Power BI file from `/powerbi/` and connect to `gold` container
 
-Converted timestamps and distances
+---
 
-Saved as partitioned Parquet files
+## 📩 Contact
 
-🟡 Gold Layer (Aggregated)
-Shipment KPIs by vendor, route, month
+📧 Email: **rao.mohsin.54@gmail.com**  
+🌐 [LinkedIn](https://www.linkedin.com/in/mohsin-mukhtiar/)  
+✍️ [Medium Profile](https://medium.com/@rao.mohsin.54)
 
-Calculated delay time and on-time %
+---
 
-Output stored in gold/ container
+## ⭐ Star This Repo
 
+If you found this project useful, give it a ⭐ on GitHub — and feel free to fork or adapt it!
 
-
-
-🧠 Skills Demonstrated
-Metadata-driven ADF pipelines (parameterized & looped)
-
-Databricks transformation logic with PySpark
-
-Partitioned & incremental data processing
-
-Delta Lake best practices (Parquet format)
-
-End-to-end orchestration in cloud
-
-Business-first Power BI dashboard design
-
-
-
-
-📤 How to Reproduce
-Clone this repo
-
-Upload /data/ files to Azure Data Lake Gen2
-
-Import ADF pipelines from /adf_pipelines/
-
-Run notebooks in /notebooks/ inside Databricks
-
-Load Power BI from /powerbi/ and connect to Gold layer
-
-
-
-
-📩 Contact
-📧 rao.mohsin.54@gmail.com
-🌐 LinkedIn: https://www.linkedin.com/in/mohsin-mukhtiar/
-✍️ Medium
-
-⭐ Star this repo if you found it useful!
+---
