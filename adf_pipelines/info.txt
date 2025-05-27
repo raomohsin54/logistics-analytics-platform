@@ -1,0 +1,6 @@
+selected resource name:		pl_copy_shipments_to_bronze
+selected resource type:		pipeline
+factory name:			logistics-adf
+factory location:		australiaeast
+subscription id:		e77b30a5-74e0-4fbc-bd8d-0e946c837490
+time of download (UTC):		Tue, 27 May 2025 04:51:17 GMT

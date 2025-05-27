@@ -1,0 +1,99 @@
+{
+    "name": "pl_copy_shipments_to_bronze",
+    "properties": {
+        "activities": [
+            {
+                "name": "LoopOverFiles",
+                "type": "ForEach",
+                "dependsOn": [],
+                "userProperties": [],
+                "typeProperties": {
+                    "items": {
+                        "value": "@pipeline().parameters.fileList\n",
+                        "type": "Expression"
+                    },
+                    "activities": [
+                        {
+                            "name": "CopyFileToBronze",
+                            "type": "Copy",
+                            "dependsOn": [],
+                            "policy": {
+                                "timeout": "0.12:00:00",
+                                "retry": 0,
+                                "retryIntervalInSeconds": 30,
+                                "secureOutput": false,
+                                "secureInput": false
+                            },
+                            "userProperties": [],
+                            "typeProperties": {
+                                "source": {
+                                    "type": "DelimitedTextSource",
+                                    "storeSettings": {
+                                        "type": "AzureBlobFSReadSettings",
+                                        "recursive": true,
+                                        "enablePartitionDiscovery": false
+                                    },
+                                    "formatSettings": {
+                                        "type": "DelimitedTextReadSettings"
+                                    }
+                                },
+                                "sink": {
+                                    "type": "DelimitedTextSink",
+                                    "storeSettings": {
+                                        "type": "AzureBlobFSWriteSettings"
+                                    },
+                                    "formatSettings": {
+                                        "type": "DelimitedTextWriteSettings",
+                                        "quoteAllText": true,
+                                        "fileExtension": ".txt"
+                                    }
+                                },
+                                "enableStaging": false,
+                                "translator": {
+                                    "type": "TabularTranslator",
+                                    "typeConversion": true,
+                                    "typeConversionSettings": {
+                                        "allowDataTruncation": true,
+                                        "treatBooleanAsNumber": false
+                                    }
+                                }
+                            },
+                            "inputs": [
+                                {
+                                    "referenceName": "ds_generic_raw",
+                                    "type": "DatasetReference",
+                                    "parameters": {
+                                        "fileName": "@item()"
+                                    }
+                                }
+                            ],
+                            "outputs": [
+                                {
+                                    "referenceName": "ds_generic_bronze",
+                                    "type": "DatasetReference",
+                                    "parameters": {
+                                        "fileName": "@item()"
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            }
+        ],
+        "parameters": {
+            "fileList": {
+                "type": "array",
+                "defaultValue": [
+                    "shipments.csv",
+                    "drivers.csv",
+                    "routes.csv",
+                    "vendors.csv"
+                ]
+            }
+        },
+        "annotations": [],
+        "lastPublishTime": "2025-05-27T03:01:01Z"
+    },
+    "type": "Microsoft.DataFactory/factories/pipelines"
+}

@@ -1,0 +1,11 @@
+RouteID,DistanceKM,AverageTimeMin,RouteType
+R01,1653,836,Rural
+R02,1984,356,Interstate
+R03,122,1585,Interstate
+R04,79,965,Interstate
+R05,1651,1285,Urban
+R06,1907,564,Interstate
+R07,1181,692,Interstate
+R08,1676,297,Urban
+R09,502,1434,Rural
+R10,360,1084,Urban
