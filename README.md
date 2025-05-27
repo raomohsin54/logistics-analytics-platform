@@ -16,20 +16,6 @@ It's designed for enterprise-scale logistics or transport companies to monitor *
 
 ---
 
-## 📁 Folder Structure
-
-logistics-analytics-platform/
-│
-├── data/ # Dummy CSVs (drivers, vendors, routes, shipments)
-├── notebooks/ # Databricks Notebooks for each layer
-├── adf_pipelines/ # ADF JSON definitions
-├── powerbi/ # Power BI screenshots or .pbix files
-├── architecture/ # Architecture diagram image
-├── README.md # This file
-└── .gitignore
-
----
-
 ## 📊 Power BI Dashboard Features
 
 - ✅ KPI Cards: Total Shipments, Avg Delay, On-Time %
