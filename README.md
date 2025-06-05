@@ -12,7 +12,7 @@ It's designed for enterprise-scale logistics or transport companies to monitor *
 
 ## 🧱 Architecture
 
-![Architecture Diagram](architecture/logistics_architecture.png)
+![Architecture Diagram](architecture/Architecture%20Diagram.png)
 
 ---
 
